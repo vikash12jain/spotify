@@ -1,0 +1,380 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #000000;
+    /* background-color: #dd0f0f; */
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    display: flex;
+    background-color: black;
+}
+
+.left {
+    width: 25vw;
+    margin: 6px;
+    margin-left: 7px;
+    margin-right: 0;
+}
+
+.right {
+    width: 75vw;
+    margin: 6px;
+    background-color: #121212;
+    border-radius: 12px;
+    position: relative;
+    height: 98vh;
+}
+.logo img{
+    width: 110px;
+    margin-top: -10px;
+}
+.home {
+    background-color: #121212;
+    /* background-color: orange; */
+    border-radius: 12px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.home ul li {
+    display: flex;
+    list-style: none;
+    width: 23px;
+    gap: 25px;
+    margin-top: 15px;
+    font-size: 16px;
+    /* color: #838383; */
+    color: white;
+}
+
+.library {
+    background-color: #121212;
+    /* background-color: orange; */
+    border-radius: 12px;
+    padding: 18px 15px;
+    box-sizing: border-box;
+    /* todo: recheck for gap between two card, for a minute im here work with mt : 10px*/
+    margin-top: 10px;
+
+}
+
+.library-inside {
+    justify-content: space-between;
+}
+
+.library .head {
+    gap: 25px;
+    font-size: 16px;
+    color: #838383;
+    color: white;
+    font-weight: 600;
+    /* todo: equal the height diffrence of both img and tag */
+}
+
+.library img {
+    width: 24px;
+}
+
+
+/* css for songs to be added */
+.list-of-songs {
+    padding: 18px 10px;
+    color: white;
+    height: 28vh;
+    overflow-y: scroll;
+
+}
+
+.list-of-songs ul li {
+    list-style: decimal;
+    margin: 4px;
+    margin-bottom: 8px;
+
+}
+
+.song-card {
+    /* background-color: #000000; */
+    border: 1px solid white;
+    height: 6vh;
+    padding: 10px 12px;
+    gap: 32px;
+    border-radius: 8px;
+    font-size: 13.5px;
+    cursor: pointer;
+}
+
+.song-card img {
+    margin-left: 10px;
+    width: 30px;
+}
+
+.poster {
+    position: relative;
+}
+
+.poster .song-play {
+    position: absolute;
+    left: 2px;
+    top: 20px;
+    opacity: 0;
+    width: 24px;
+    fill: #1ed760;
+}
+
+.song-card:hover {
+    background-color: #3634344d;
+
+}
+
+.song-card:hover .poster .song-play {
+    transition: all 0.3s ease-out;
+    top: 10px;
+    opacity: 1;
+}
+
+.card1,
+.card2 {
+    background-color: #242424;
+    /* background-color: orange; */
+    border-radius: 12px;
+    box-sizing: border-box;
+    margin-top: 8px;
+    color: white;
+    padding: 11px 15px;
+    font-weight: 500;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.card1 div,
+.card2 div {
+
+    /* todo */
+    margin-top: 3px;
+}
+
+.card1 :nth-child(2) {
+    font-size: 14px;
+}
+
+.card1 button,
+.card2 button {
+    border-radius: 12px;
+    padding: 4px 9px;
+    box-shadow: none;
+    color: black;
+    font-weight: 600;
+    border: none;
+    /* todo */
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.cookies {
+    margin-top: 8px;
+}
+
+.cookies a {
+    color: #848080;
+    font-size: 13px;
+}
+
+.english-btn {
+    background-color: #12121200;
+    box-shadow: none;
+    border-radius: 17px;
+    color: white;
+    font-size: 15px;
+    margin-left: 9px;
+    margin-top: 10px;
+    padding: 5px 11px;
+    border: 1px solid rgba(255, 255, 255, 0.527);
+    cursor: pointer;
+
+}
+
+/* right part start */
+.right .arrows {
+    gap: 10px;
+}
+
+.right .arrows img {
+    background-color: #020202;
+    border-radius: 23px;
+    padding: 4px;
+    width: 23px;
+}
+
+.nav-head {
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px;
+    background-color: #090909;
+    
+    border-radius: 13px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    height: 32px;
+
+}
+
+.button {
+    gap: 40px;
+}
+
+.signup {
+    font-size: 16px;
+    background-color: #10101000;
+    color: #929292;
+    border-radius: 23px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.signup:hover {
+    color: white;
+    font-size: 16.5px;
+
+}
+
+.log-in {
+    font-size: 16px;
+    background-color: #f6f3f3;
+    color: #000000;
+    border-radius: 30px;
+    border: none;
+    padding: 7px;
+    height: 45px;
+    width: 95px;
+    margin-right: 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+
+}
+
+.log-in:hover {
+    font-weight: bold;
+    height: 46px;
+    width: 96px;
+
+}
+
+.spotifyPlaylist {
+    background-color: #121212;
+    color: white;
+    padding: 10px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.playlist {
+    gap: 16px;
+    flex-wrap: wrap;
+    max-height: 75vh;
+    overflow-y: scroll;
+    margin-left: 10px;
+    margin-top: 8px;
+}
+
+.playlist-card {
+    background-color: #181818;
+    width: 160px;
+    padding: 15px;
+    border-radius: 13px;
+    margin-top: 18px;
+    position: relative;
+}
+
+.playlist-card img {
+    object-fit: contain;
+    width: 100%;
+    border-radius: 13px;
+}
+
+.playlist-card .play-button {
+    position: absolute;
+    width: 36px;
+    background-color: #1ed760;
+    border-radius: 23px;
+    padding: 1px;
+    top: 147px;
+    right: 25px;
+    opacity: 0;
+}
+
+/* .play-button:hover{
+    transition: all 1s ease-out;
+    opacity: 1;
+    top: 134px;
+} */
+.playlist-card:hover .play-button {
+    transition: all 0.6s ease-out;
+    opacity: 1;
+    top: 127px;
+}
+
+.playlist-card:hover {
+    transition: all 0.2s ease-out;
+    background-color: #272727;
+
+}
+.music-player {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background:#242424;
+    justify-content: center;
+    border-radius:13px;
+}
+
+.music-btn {
+    gap: 14px;
+}
+
+.music-btn img {
+    width: 29px;
+    margin: 8px 0px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.play-box{
+    color: white;
+    width: 100%;
+    justify-content: space-around;
+}
+.song-name,.song-duration{
+    margin-top: 10px;
+}
+
+.play-bar{
+    width: 60%;
+    height: 4px;
+    border: 1px solid rgba(205, 4, 4, 0);
+    position: absolute;
+    border-radius: 11px;
+    bottom: 8px;
+    background-color: #000000;
+    background-color:white;
+    cursor: pointer;
+
+    
+}
+.play-ball{
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    left: 1px;
+    top: -6px;
+    transition: left 0.3s ease-in;
+    outline: 1px solid white;
+    border-radius: 23px;
+    background-color:#242424f3;
+    /* border: 1px solid black; */
+}
