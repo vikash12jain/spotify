@@ -1,5 +1,5 @@
 let currentsong = new Audio();
-
+let songs = [];
 
 function convertSecondsToMinutes(seconds) {
     let formattedMinutes = "00";
@@ -37,19 +37,42 @@ async function getsong() {
 function playMusic(track) {
 
     currentsong.src = "/songs/" + track;
-
+    highlightCurrentSong();
+    
     // if(play){
-    play.src = "Asset/pause.svg";
-    currentsong.play();
-    // }
-
+        play.src = "Asset/pause.svg";
+        currentsong.play();
+        // }
+        
     document.querySelector(".song-duration").innerHTML = "00:00/00:00";
     document.querySelector(".song-name").innerHTML = track;
 
 }
+
+function highlightCurrentSong() {
+    Array.from(document.querySelector(".list-of-songs").getElementsByTagName("li")).forEach(card => {
+        card.classList.remove("current");
+    })
+
+    const index = songs.indexOf(currentsong.src.split("/songs/")[1]);
+    document.getElementsByClassName("song-card")[index].classList.add("current");
+}
+function PausePlayByCard(){
+    if (currentsong.paused) {
+        // playMusic(document.querySelector(".info").innerHTML,true);
+        play.src = "Asset/pause.svg";
+        currentsong.play()
+    }
+    else {
+        // playMusic(document.querySelector(".info").innerHTML,false);
+        currentsong.pause();
+        play.src = "Asset/play-circle-svgrepo-com.svg";
+    }
+}
+
 async function main() {
 
-    let songs = await getsong()
+    songs = await getsong()
     // console.log(songs);
     // let audio = new Audio(songs[0]); //todo
     let songUL = document.querySelector(".list-of-songs").getElementsByTagName("ul")[0];
@@ -71,7 +94,20 @@ async function main() {
     // playMusic((document.querySelector(".info").innerHTML));
     Array.from(document.querySelector(".list-of-songs").getElementsByTagName("li")).forEach(element => {
         element.addEventListener("click", e => {
+            if((element.querySelector(".info").innerHTML) != decodeURI(currentsong.src.split("/songs/")[1])){
             playMusic((element.querySelector(".info").innerHTML));
+            }
+           else if (currentsong.paused) {
+                // playMusic(document.querySelector(".info").innerHTML,true);
+                play.src = "Asset/pause.svg";
+                currentsong.play();
+                // playMusic((element.querySelector(".info").innerHTML));
+            }
+            else {
+                // playMusic(document.querySelector(".info").innerHTML,false);
+                currentsong.pause();
+                play.src = "Asset/play-circle-svgrepo-com.svg";
+            }
         });
     });
 
@@ -79,6 +115,7 @@ async function main() {
     currentsong.src = "/songs/" + document.querySelector(".info").innerHTML;
     document.querySelector(".song-name").innerHTML = document.querySelector(".info").innerHTML;
     document.querySelector(".song-duration").innerHTML = "00:00/00:00";
+    highlightCurrentSong();
 
 
     //  Attach eventlistener to Play,Pause,Next
@@ -106,6 +143,36 @@ async function main() {
         currentsong.currentTime = (currentsong.duration * (e.offsetX / e.target.getBoundingClientRect().width));
 
     })
+
+    humburger.addEventListener("click", () => {
+        document.querySelector(".left").style.left = 0;
+    })
+    cross.addEventListener("click", () => {
+        document.querySelector(".left").style.left = '-430px';
+    })
+    // add event listener to previous button
+    prev.addEventListener("click", () => {
+        if (songs.indexOf(currentsong.src.split("/songs/")[1]) == 0) {
+            playMusic(songs[songs.length - 1]);
+        }
+        else {
+            playMusic(songs[songs.indexOf(currentsong.src.split("/songs/")[1]) - 1]);
+        }
+    })
+
+    // add event listener to next button
+    next.addEventListener("click", () => {
+        if (songs.indexOf(currentsong.src.split("/songs/")[1]) == songs[songs.length - 1]) {
+            playMusic(songs[0]);
+        }
+        else {
+            playMusic(songs[songs.indexOf(currentsong.src.split("/songs/")[1]) + 1]);
+        }
+    })
+
+
+
+
 
 
 
