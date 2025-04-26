@@ -138,7 +138,7 @@ body {
 }
 
 .song-card:hover {
-    background-color: #3634344d; 
+    background-color: #3634344d;
 }
 
 .song-card:hover .poster .song-play {
@@ -146,15 +146,18 @@ body {
     top: 10px;
     opacity: 1;
 }
-.current{
+
+.current {
     background-color: #3634348c;
 }
+
 .current .poster .song-play {
     opacity: 0;
     transition: all 0.3s ease-out;
     top: 10px;
     opacity: 1;
 }
+
 .card1,
 .card2 {
     background-color: #242424;
@@ -296,13 +299,16 @@ body {
     cursor: pointer;
 }
 
-.playlist {
+.playlistUL {
+
     gap: 12px;
     flex-wrap: wrap;
-    max-height: 75vh;
+    max-height: 66vh;
     overflow-y: auto;
+    overflow: auto;
     margin-left: 10px;
     margin-top: 28px;
+    list-style: none;
 }
 
 .playlist-card {
@@ -312,6 +318,7 @@ body {
     border-radius: 13px;
     /* margin-top: 18px; */
     position: relative;
+    z-index: 1000;
 }
 
 .playlist-card img {
@@ -325,6 +332,7 @@ body {
     font-size: 20px;
     font-weight: 600;
 }
+
 .playlist-card p {
     margin: 2px;
     font-size: 14px;
@@ -369,6 +377,7 @@ body {
     border-radius: 13px;
     min-width: 360px;
     height: 100px;
+    z-index: 2000;
     /* left: 394px; */
 }
 
@@ -385,7 +394,6 @@ body {
 
 .play-box {
     color: white;
-
     padding: 10px;
     margin-bottom: 10px;
     width: 100%;
@@ -397,8 +405,9 @@ body {
 .song-duration {
     margin-top: 10px;
 }
-.song-name{
-    width:200px;
+
+.song-name {
+    width: 200px;
     min-width: auto;
 }
 
@@ -425,8 +434,77 @@ body {
     transition: left 0.3s ease-in;
     outline: 1px solid white;
     border-radius: 23px;
-    background-color: #24242400;
+    background-color: #090909;
     /* border: 1px solid black; */
+}
+
+.creator button {
+    position: absolute;
+    right: 110px;
+    bottom: 130px;
+    border-radius: 18px;
+    padding: 5px 10px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #242424;
+    background-color: #1DB954;
+    color: black;
+    cursor: pointer;
+    border: none;
+    z-index: 10000;
+}
+
+.creator .profile {
+    position: absolute;
+    right: 3px;
+    opacity: 0;
+    bottom: 130px;
+    width: 250px;
+    height: 300px;
+    border: 1px solid rgba(255, 255, 255, 0.608);
+    background-color: #121212;
+    border-radius: 7px;
+}
+
+#crossbtn {
+    position: absolute;
+    right: 0;
+    padding: 4px;
+}
+
+#profile-img {
+    position: absolute;
+    left: 76px;
+    top: 30px;
+
+    width: 100px;
+    outline: 0.1px solid rgba(255, 255, 255, 0.122);
+    border-radius: 100px;
+    align-items: center;
+}
+
+.name {
+    position: absolute;
+    left: 95px;
+    top: 145px;
+    font-weight: 500;
+    color: white;
+}
+
+.image1 {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    position: absolute;
+    /* flex-wrap: wrap; */
+    top: 185px;
+    gap: 15px;
+    left: 60px;
+    width: 150px;
+}
+
+.a-img {
+    width: 35px;
 }
 
 @media (max-width: 1200px) {
@@ -435,7 +513,7 @@ body {
         /* left: 0; */
         transition: left .5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         left: -430px;
-        z-index: 1;
+        z-index: 100000;
         background-color: #121212ef;
     }
 
@@ -463,7 +541,7 @@ body {
         margin: 0;
         padding: 0;
     }
-    
+
 
     .song-name {
         width: 100px;
@@ -482,17 +560,28 @@ body {
         width: 30vw;
     }
 
+    .song-duration {
+        position: relative;
+        bottom: 23px;
+    }
+
+    .song-name {
+        width: auto;
+        font-size: 16px;
+    }
 }
 
 @media (max-width : 550px) {
+
     /* .playlist {
         /* justify-content: center; */
     /* } */
-    .playlist-card{
-        
+    .playlist-card {
+
         width: 38vw;
     }
 }
+
 @media (max-width : 435px) {
 
     .music-player {
@@ -503,30 +592,43 @@ body {
 
     .playlist-card {
         width: 80vw;
-        margin: 0px
+        margin: 0px;
+        margin-left: 5px;
     }
 
     .playlist {
         justify-content: center;
     }
-    .music-btn img{
+
+    .music-btn img {
         margin: 0;
         padding: 0;
     }
-    .play-box *{
-        
+
+    .play-box * {
+
         margin: 0;
         padding: 0;
     }
-    .music-player{
-        
-    height: 110px;
+
+    .music-player {
+
+        height: 110px;
     }
-    .song-duration{
+
+    .song-duration {
         position: relative;
         bottom: 8px;
-    }.song-name {
-       width:auto;
-       font-size: 15px;
     }
+
+    .song-name {
+        width: auto;
+        font-size: 15px;
+    }
+
+    .creator button {
+        right: 50px;
+        bottom: 170px;
+    }
+
 }
